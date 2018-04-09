@@ -5,7 +5,6 @@ While I try to use composer for everything autoloader related.
 
 Sometimes you need an autolaoder outside of composer.  Maybe for a small project etc...
 
-
 ```
 use evo\autoloader\Autoloader;
 
