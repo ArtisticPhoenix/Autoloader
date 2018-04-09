@@ -1,0 +1,33 @@
+{
+	"name" : "evo/autoloader",
+	"description" : "PSR4 compatible autoloader",
+	"license" : "GPL-3.0",
+	"keywords" : [
+		"Autoloader PSR4"
+	],
+	"autoload" : {
+		"psr-4" : {
+			"evo\\" : [
+				"src/evo"
+			]
+		}
+	},
+	"require" : {
+		"php" : ">=5.6"
+	},
+	"support" : {
+		"email" : "artisticphoenix@gmail.com",
+		"source" : "https://github.com/ArtisticPhoenix/Autoloader.git",
+		"issues" : "https://github.com/ArtisticPhoenix/Autoloader/issues",
+		"wiki" : "https://github.com/ArtisticPhoenix/Autoloader/wiki"
+	},
+	"type" : "library",
+	"authors" : [{
+			"name" : "Hugh Durham III",
+			"email" : "artisticphoenix@gmail.com",
+			"homepage" : "http://www.artisticphoenix.com",
+			"role" : "Author"
+		}
+	],
+	"minimum-stability" : "dev"
+}
