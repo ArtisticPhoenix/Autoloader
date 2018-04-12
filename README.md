@@ -26,7 +26,7 @@ This is the most important method besides the `getInstance()` method.  It's defi
 registerPath($namespace, $path, [$priority = 100])
 ```
 
-Where `$namespace` is a namespace such as `evo\\autoloader` and path is a path like `__DIR__.'/scr/evo/'`.  For the most part the autoloader will account for differences like this `\\evo\\autoloader\\` for the namespace, and simularly the path `__DIR__.'/scr/evo'`.  You can use a relative or absolute path with the autoloader.  The `$priority` sorts the registered paths in asending order.  So priorities that are lower are called first.
+Where `$namespace` is a namespace such as `evo\\autoloader` and path is a path like `__DIR__.'/scr/evo/'`.  For the most part the autoloader will account for differences like this `\\evo\\autoloader\\` for the namespace, and simularly the path `__DIR__.'/scr/evo'`.  You can use a relative or absolute path with the autoloader.  The `$priority` sorts the registered paths in asending order grouped by namespace.  So priorities that are lower are called first withing namespaces with multiple paths.
 
 Let's go back to the default setting, this is no namespace, no path.  So it will be rooted to whatever path calls the class it's trying to load and starts with an empty namespace.  The simplest way to explain how it figures out paths is like this, it searches the `registerPaths` for the `$namespace` then it adds `$path +  class info` for that namespace.
 

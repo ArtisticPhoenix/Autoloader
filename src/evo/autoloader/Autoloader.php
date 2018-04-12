@@ -202,7 +202,7 @@ final class Autoloader
         $path = ($this->normalizePath($path));
         
         $this->paths[$namespace][sha1($path)] = array(
-            'path'         => $path,
+            'path'         => preg_replace("#\\\|/#", DIRECTORY_SEPARATOR, $path),
             'priority'     => $priority
         );
         
@@ -286,7 +286,10 @@ final class Autoloader
     protected function sortByPriority($namespace)
     {
         uasort($this->paths[$namespace], function ($a, $b) {
-            return ($a['priority'] > $b['priority']) ? true : false;
+            if ($a['priority'] == $b['priority']) {
+                return 0;
+            }
+            return ($a['priority'] < $b['priority']) ? -1 : 1;
         });
     }
     
