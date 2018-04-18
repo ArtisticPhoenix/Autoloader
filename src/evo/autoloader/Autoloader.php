@@ -1,5 +1,6 @@
 <?php
 namespace evo\autoloader;
+
 /**
  *
  * (c) 2016 Hugh Durham III
@@ -52,13 +53,13 @@ final class Autoloader
     private static $instance;
     
     /**
-     * 
+     *
      * @var string
      */
     private static $debugStart = '_START_';
     
     /**
-     * 
+     *
      * @var string
      */
     private static $debugEnd = '_END_';
@@ -264,19 +265,20 @@ final class Autoloader
      */
     protected function debug($message, $wrap = false)
     {
-        if (!$this->debugMode) return;
+        if (!$this->debugMode) {
+            return;
+        }
         
-        if( $wrap || $message == self::$debugStart){
+        if ($wrap || $message == self::$debugStart) {
             echo str_pad("= ".__METHOD__." =", 90, "=", STR_PAD_BOTH) . PHP_EOL;
         }
-        if($message != self::$debugStart && $message != self::$debugEnd){
+        if ($message != self::$debugStart && $message != self::$debugEnd) {
             echo $message  . PHP_EOL;
         }
                 
-        if( $wrap || $message == self::$debugEnd){
-            echo str_pad("", 90, "=", STR_PAD_BOTH) . PHP_EOL . PHP_EOL;                  
+        if ($wrap || $message == self::$debugEnd) {
+            echo str_pad("", 90, "=", STR_PAD_BOTH) . PHP_EOL . PHP_EOL;
         }
-        
     }
     
     /**
@@ -300,7 +302,9 @@ final class Autoloader
      */
     protected function normalizePath($path)
     {
-        if(empty($path)) return '';
+        if (empty($path)) {
+            return '';
+        }
         
         if (false !== strpos($path, '\\')) {
             $path = str_replace("\\", "/", $path);
