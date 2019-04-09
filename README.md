@@ -79,7 +79,7 @@ Ok, we've gotten pretty far without touching the namespace argument at all.  The
 $Autoloader->registerPath('evo', __DIR__.'/src/evo');
 ```
 
-This to will correctly reslove the path to the file.  The way it figures this out is that the autolaoder looks up the namespace `evo` which it finds with the path of `__DIR__.'/src/evo'`.  Now because it found the `evo` part of the class namespace it doesn't add this to the path, and there is nothing left in the namespace in this case, so it just adds the class name and we wind up with this __DIR__.'/src/evo/C.php`. Which is essentially the same thing as the above example.
+This to will correctly reslove the path to the file.  The way it figures this out is that the autolaoder looks up the namespace `evo` which it finds with the path of `__DIR__.'/src/evo'`.  Now because it found the `evo` part of the class namespace it doesn't add this to the path, and there is nothing left in the namespace in this case, so it just adds the class name and we wind up with this `__DIR__.'/src/evo/C.php`. Which is essentially the same thing as the above example.
 
 The amount of work the autolaoder had to do in the above example is a bit less then the preceeding one, so you might get a bit of performance gain for registering the namespace this way.  That said, the real advantage of this method comes into play when the class is located in a path that has no logical relationship to the namespace.  For example:
 
