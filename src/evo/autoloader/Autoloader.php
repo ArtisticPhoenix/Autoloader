@@ -67,9 +67,9 @@ final class Autoloader
     /**
      * No public construction allowed - Singleton
      */
-    private function __construct($throw, $prepend)
+    private function __construct($prepend)
     {
-        spl_autoload_register(array( $this,'splAutoload'), $throw, $prepend);
+        spl_autoload_register(array( $this,'splAutoload'), true, $prepend);
         $this->registerPath('', '');
     }
     
