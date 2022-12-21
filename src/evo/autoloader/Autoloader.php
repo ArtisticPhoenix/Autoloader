@@ -87,12 +87,11 @@ final class Autoloader
      * 
      * Arguments are applied only to the first instance
      * 
-     * @param boolean $throw
      * @param boolean $prepend
      * @return self
      */
-    public static function I($throw = null, $prepend = null){
-        return self::getInstance($throw,$prepend);
+    public static function I($prepend = null){
+        return self::getInstance($prepend);
     }
 
     /**
@@ -100,15 +99,14 @@ final class Autoloader
      * Get an instance of the Autoloader Singleton
      * 
      * Arguments are applied only to the first instance 
-     * 
-     * @param boolean $throw
+     *  
      * @param boolean $prepend
      * @return self
      */
-    public static function getInstance($throw = null, $prepend = null)
+    public static function getInstance($prepend = null)
     {
         if (!self::$instance) {
-            self::$instance = new self($throw, $prepend);
+            self::$instance = new self($prepend);
         }
         return self::$instance;
     }
