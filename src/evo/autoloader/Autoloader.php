@@ -80,16 +80,27 @@ final class Autoloader
     {
     }
     
-    /**
-     * no access
-     */
-    final private function __wakeup()
-    {
-    }
     
     /**
      *
      * Get an instance of the Autoloader Singleton
+     * 
+     * Arguments are applied only to the first instance
+     * 
+     * @param boolean $throw
+     * @param boolean $prepend
+     * @return self
+     */
+    public static function I($throw = false, $prepend = false){
+        return self::getInstance($throw,$prepend);
+    }
+
+    /**
+     *
+     * Get an instance of the Autoloader Singleton
+     * 
+     * Arguments are applied only to the first instance 
+     * 
      * @param boolean $throw
      * @param boolean $prepend
      * @return self
