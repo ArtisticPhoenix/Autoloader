@@ -91,7 +91,7 @@ final class Autoloader
      * @param boolean $prepend
      * @return self
      */
-    public static function I($throw = false, $prepend = false){
+    public static function I($throw = null, $prepend = null){
         return self::getInstance($throw,$prepend);
     }
 
@@ -105,7 +105,7 @@ final class Autoloader
      * @param boolean $prepend
      * @return self
      */
-    public static function getInstance($throw = false, $prepend = false)
+    public static function getInstance($throw = null, $prepend = null)
     {
         if (!self::$instance) {
             self::$instance = new self($throw, $prepend);
